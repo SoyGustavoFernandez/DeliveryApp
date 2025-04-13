@@ -1,4 +1,6 @@
-﻿namespace UserService.Domain.Entity
+﻿using DeliveryApp.Common.Entities;
+
+namespace UserService.Domain.Entity
 {
     /// <summary>
     /// Tabla de unión que relaciona roles con permisos (relación many-to-many).
@@ -7,7 +9,7 @@
     /// Esta entidad permite la asignación de múltiples permisos a un rol y viceversa.
     /// Representa la relación entre las entidades Rol y Permiso.
     /// </remarks>
-    public class RolPermiso
+    public class RolPermiso: Auditoria
     {
         /// <summary>
         /// Identificador único del rol relacionado.

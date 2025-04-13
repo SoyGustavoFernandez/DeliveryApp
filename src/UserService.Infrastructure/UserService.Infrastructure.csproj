@@ -22,7 +22,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DeliveryApp.Common\DeliveryApp.Common.csproj" />
+    <ProjectReference Include="..\UserService.Application\UserService.Application.csproj" />
     <ProjectReference Include="..\UserService.Domain\UserService.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

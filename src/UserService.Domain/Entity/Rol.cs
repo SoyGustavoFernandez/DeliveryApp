@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using DeliveryApp.Common.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace UserService.Domain.Entity
 {
@@ -9,7 +10,7 @@ namespace UserService.Domain.Entity
     /// Los roles son fundamentales para el sistema de autorización y pueden ser asignados a múltiples usuarios.
     /// Cada rol puede tener múltiples permisos asociados a través de la relación RolPermiso.
     /// </remarks>
-    public class Rol
+    public class Rol: Auditoria
     {
         /// <summary>
         /// Identificador único del rol en formato GUID.

@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using UserService.Domain.Enums;
+﻿using DeliveryApp.Common.Entities;
+using System.ComponentModel.DataAnnotations;
 
 namespace UserService.Domain.Entity
 {
@@ -10,13 +10,13 @@ namespace UserService.Domain.Entity
     /// Esta entidad almacena todos los datos necesarios para la autenticación y gestión de usuarios.
     /// Los usuarios pueden tener múltiples roles asignados a través de la relación UsuarioRol.
     /// </remarks>
-    public class Usuario
+    public class Usuario : Auditoria
     {
         /// <summary>
         /// Identificador único del usuario (GUID)
         /// </summary>
         /// <example>a3b2c1d0-e5f4-4a7b-8c3d-2e1f0a9b8c7d</example>
-        public Guid Id { get; private set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Primer nombre del usuario
@@ -69,13 +69,13 @@ namespace UserService.Domain.Entity
         /// Hash de la contraseña del usuario. Campo requerido.
         /// </summary>
         [Required]
-        public string PasswordHash { get; private set; }
+        public string PasswordHash { get; set; }
 
         /// <summary>
         /// Salt utilizado para el hash de la contraseña. Campo requerido.
         /// </summary>
         [Required]
-        public string PasswordSalt { get; private set; }
+        public string PasswordSalt { get; set; }
 
         /// <summary>
         /// Número de teléfono del usuario. Máximo 20 caracteres.
@@ -92,26 +92,8 @@ namespace UserService.Domain.Entity
         public string Direccion { get; set; }
 
         /// <summary>
-        /// Fecha y hora de registro del usuario en el sistema.
-        /// </summary>
-        /// <example>2023-01-15T10:30:00Z</example>
-        public DateTime FechaRegistro { get; private set; }
-
-        /// <summary>
-        /// Fecha y hora de la última actualización del usuario.
-        /// </summary>
-        /// <example>2023-01-20T15:45:00Z</example>
-        public DateTime FechaActualizacion { get; set; }
-
-        /// <summary>
-        /// Estado actual del usuario (Activo, Inactivo, Bloqueado, etc.).
-        /// </summary>
-        /// <example>1</example>
-        public UsuarioEstado Estado { get; private set; }
-
-        /// <summary>
         /// Colección de relaciones UsuarioRol que representan los roles asignados a este usuario.
         /// </summary>
-        public ICollection<UsuarioRol> UsuarioRoles { get; private set; } = new List<UsuarioRol>();
+        public ICollection<UsuarioRol> UsuarioRoles { get; set; } = new List<UsuarioRol>();
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace UserService.Domain.Entity
+﻿using DeliveryApp.Common.Entities;
+
+namespace UserService.Domain.Entity
 {
     /// <summary>
     /// Tabla de unión que relaciona usuarios con roles (relación many-to-many).
@@ -7,7 +9,7 @@
     /// Esta entidad permite la asignación de múltiples roles a un usuario y viceversa.
     /// Representa la relación entre las entidades Usuario y Rol.
     /// </remarks>
-    public class UsuarioRol
+    public class UsuarioRol: Auditoria
     {
         /// <summary>
         /// Identificador único del usuario relacionado.
