@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.5.0" />
+    <Folder Include="DTOs\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeliveryApp.Common\DeliveryApp.Common.csproj" />
-    <ProjectReference Include="..\UserService.Domain\RoleService.Domain.csproj" />
+    <ProjectReference Include="..\..\DeliveryApp.Common\DeliveryApp.Common.csproj" />
   </ItemGroup>
 
 </Project>

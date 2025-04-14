@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UserService.Application\RoleService.Application.csproj" />
-    <ProjectReference Include="..\UserService.Infrastructure\RoleService.Infrastructure.csproj" />
+    <ProjectReference Include="..\RoleService.Application\RoleService.Application.csproj" />
+    <ProjectReference Include="..\RoleService.Infrastructure\RoleService.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

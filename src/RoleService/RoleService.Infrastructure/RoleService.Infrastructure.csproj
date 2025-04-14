@@ -21,13 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DeliveryApp.Common\DeliveryApp.Common.csproj" />
-    <ProjectReference Include="..\UserService.Application\RoleService.Application.csproj" />
-    <ProjectReference Include="..\UserService.Domain\RoleService.Domain.csproj" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\..\DeliveryApp.Common\DeliveryApp.Common.csproj" />
+    <ProjectReference Include="..\RoleService.Application\RoleService.Application.csproj" />
+    <ProjectReference Include="..\RoleService.Domain\RoleService.Domain.csproj" />
   </ItemGroup>
 
 </Project>
