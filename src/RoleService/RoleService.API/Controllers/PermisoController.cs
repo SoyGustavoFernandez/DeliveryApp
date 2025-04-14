@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RoleService.Application.Commands.Permisos;
 using RoleService.Application.Queries.Permisos;
+using RoleService.Domain.DTOs;
 
 namespace RoleService.API.Controllers
 {
@@ -48,13 +49,16 @@ namespace RoleService.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> CrearPermiso([FromBody] CreatePermisoCommand command)
+        public async Task<IActionResult> CrearPermiso([FromBody] CreatePermisoDTO dto)
         {
-            if (command == null)
+            if (dto == null)
             {
-                return BadRequest("El comando no puede ser nulo.");
+                return BadRequest("El DTO no puede ser nulo.");
             }
+            
+            var command = new CreatePermisoCommand(dto.Nombre, dto.Descripcion);
             var response = await mediator.Send(command);
+
             if (response.Success)
             {
                 return CreatedAtAction(nameof(CrearPermiso), new { id = response.Data }, response);
@@ -72,21 +76,17 @@ namespace RoleService.API.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> ActualizarPermiso(string id, [FromBody] UpdatePermisoCommand command)
+        public async Task<IActionResult> ActualizarPermiso(Guid id, [FromBody] UpdatePermisoDTO dto)
         {
-            if (command == null)
+            if (dto == null)
             {
-                return BadRequest("El comando no puede ser nulo.");
+                return BadRequest("El DTO no puede ser nulo.");
             }
 
-            command.Id = Guid.Parse(id);
-
+            var command = new UpdatePermisoCommand(id, dto.Nombre, dto.Descripcion);
             var response = await mediator.Send(command);
-            if (response.Success)
-            {
-                return Ok(response);
-            }
-            return BadRequest(response.Message);
+
+            return response.Success ? Ok(response) : BadRequest(response.Message);
         }
 
         /// <summary>
@@ -97,9 +97,9 @@ namespace RoleService.API.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<IActionResult> EliminarPermiso(string id)
+        public async Task<IActionResult> EliminarPermiso(Guid id)
         {
-            var response = await mediator.Send(new DeletePermisoCommand(Guid.Parse(id)));
+            var response = await mediator.Send(new DeletePermisoCommand(id));
             if (response.Success)
             {
                 return Ok(response);

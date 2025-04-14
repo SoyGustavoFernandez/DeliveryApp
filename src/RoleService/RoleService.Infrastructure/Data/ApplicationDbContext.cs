@@ -70,7 +70,7 @@ namespace RoleService.Infrastructure.Data
                 entity.Property(u => u.PasswordSalt).IsRequired();
                 entity.Property(u => u.Telefono).HasMaxLength(20);
                 entity.Property(u => u.Direccion).HasMaxLength(1000);
-                entity.Property(u => u.IdUsuReg).IsRequired().HasDefaultValue(Guid.Parse("4c86ff9d-fed2-43aa-ab6d-457525de1a88"));
+                entity.Property(u => u.IdUsuReg).IsRequired();
                 entity.Property(u => u.FecReg).IsRequired().HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
                 entity.Property(u => u.FecMod).HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnUpdate();
                 entity.Property(u => u.Vigente).IsRequired().HasDefaultValue(true);
@@ -85,7 +85,7 @@ namespace RoleService.Infrastructure.Data
                 entity.Property(r => r.Nombre).IsRequired().HasMaxLength(100);
                 entity.Property(r => r.Descripcion).HasMaxLength(1000);
 
-                entity.Property(r => r.IdUsuReg).IsRequired().HasDefaultValue(Guid.Parse("4c86ff9d-fed2-43aa-ab6d-457525de1a88"));
+                entity.Property(r => r.IdUsuReg).IsRequired();
                 entity.Property(r => r.FecReg).IsRequired().HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
                 entity.Property(r => r.FecMod).HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnUpdate();
                 entity.Property(r => r.Vigente).IsRequired().HasDefaultValue(true);
@@ -99,7 +99,7 @@ namespace RoleService.Infrastructure.Data
                 entity.Property(p => p.Id).ValueGeneratedOnAdd();
                 entity.Property(p => p.Nombre).IsRequired().HasMaxLength(100);
                 entity.Property(p => p.Descripcion).HasMaxLength(1000);
-                entity.Property(u => u.IdUsuReg).IsRequired().HasDefaultValue(Guid.Parse("4c86ff9d-fed2-43aa-ab6d-457525de1a88"));
+                entity.Property(u => u.IdUsuReg).IsRequired();
                 entity.Property(p => p.FecReg).IsRequired().HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
                 entity.Property(p => p.FecMod).HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnUpdateSometimes();
                 entity.Property(p => p.Vigente).IsRequired().HasDefaultValue(true);
@@ -113,7 +113,7 @@ namespace RoleService.Infrastructure.Data
                 entity.HasOne(ur => ur.Usuario).WithMany(u => u.UsuarioRoles).HasForeignKey(ur => ur.UsuarioId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasOne(ur => ur.Rol).WithMany(r => r.UsuarioRoles).HasForeignKey(ur => ur.RolId).OnDelete(DeleteBehavior.Cascade);
 
-                entity.Property(ur => ur.IdUsuReg).IsRequired().HasDefaultValue(Guid.Parse("4c86ff9d-fed2-43aa-ab6d-457525de1a88"));
+                entity.Property(ur => ur.IdUsuReg).IsRequired();
                 entity.Property(ur => ur.FecReg).IsRequired().HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
                 entity.Property(ur => ur.FecMod).HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnUpdate();
                 entity.Property(ur => ur.Vigente).IsRequired().HasDefaultValue(true);
@@ -127,7 +127,7 @@ namespace RoleService.Infrastructure.Data
                 entity.HasOne(rp => rp.Rol).WithMany(r => r.RolPermisos).HasForeignKey(rp => rp.RolId).OnDelete(DeleteBehavior.Cascade);
                 entity.HasOne(rp => rp.Permiso).WithMany(p => p.RolPermisos).HasForeignKey(rp => rp.PermisoId).OnDelete(DeleteBehavior.Cascade);
 
-                entity.Property(rp => rp.IdUsuReg).IsRequired().HasDefaultValue(Guid.Parse("4c86ff9d-fed2-43aa-ab6d-457525de1a88"));
+                entity.Property(rp => rp.IdUsuReg).IsRequired();
                 entity.Property(rp => rp.FecReg).IsRequired().HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnAdd();
                 entity.Property(rp => rp.FecMod).HasDefaultValueSql("GETUTCDATE()").ValueGeneratedOnUpdate();
                 entity.Property(rp => rp.Vigente).IsRequired().HasDefaultValue(true);

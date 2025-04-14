@@ -17,16 +17,16 @@ namespace RoleService.Application.Commands.Permisos
         /// <summary>
         /// Identificador del registro
         /// </summary>
-        public Guid Id { get; set; } = id;
+        public Guid Id { get; init; } = id;
 
         /// <summary>
         /// Nombre del permiso
         /// </summary>
-        public string Nombre { get; set; } = nombre;
+        public string Nombre { get; init; } = nombre;
 
         /// <summary>
         /// Descripción del permiso
         /// </summary>
-        public string Descripcion { get; set; } = descripcion;
+        public string Descripcion { get; init; } = descripcion;
     }
 }

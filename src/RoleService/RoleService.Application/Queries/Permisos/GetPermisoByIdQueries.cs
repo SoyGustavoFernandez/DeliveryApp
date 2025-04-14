@@ -1,6 +1,6 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
-using RoleService.Domain.Entity;
+using RoleService.Domain.DTOs;
 
 namespace RoleService.Application.Queries.Permisos
 {
@@ -11,7 +11,7 @@ namespace RoleService.Application.Queries.Permisos
     /// Constructor.
     /// </remarks>
     /// <param name="id">Identificador del registro</param>
-    public class GetPermisoByIdQueries(Guid id) : IRequest<Response<Permiso>>
+    public class GetPermisoByIdQueries(Guid id) : IRequest<Response<PermisoResponseDTO>>
     {
         /// <summary>
         /// Identificador del permiso.

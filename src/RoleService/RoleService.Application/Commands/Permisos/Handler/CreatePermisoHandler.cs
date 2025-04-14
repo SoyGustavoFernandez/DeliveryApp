@@ -15,7 +15,8 @@ namespace RoleService.Application.Commands.Permisos.Handler
             Permiso permiso = new()
             {
                 Nombre = request.Nombre,
-                Descripcion = request.Descripcion
+                Descripcion = request.Descripcion,
+                IdUsuReg = Guid.Parse("4c86ff9d-fed2-43aa-ab6d-457525de1a88")
             };
 
             await _repository.AddPermisoAsync(permiso);
