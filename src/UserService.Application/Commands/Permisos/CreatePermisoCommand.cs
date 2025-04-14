@@ -1,7 +1,7 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
 
-namespace UserService.Application.Commands.Permisos
+namespace RoleService.Application.Commands.Permisos
 {
     /// <summary>
     /// Comando para crear un nuevo permiso en la base de datos.

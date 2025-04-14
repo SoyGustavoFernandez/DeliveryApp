@@ -1,7 +1,7 @@
 ﻿using DeliveryApp.Common.Entities;
 using System.ComponentModel.DataAnnotations;
 
-namespace UserService.Domain.Entity
+namespace RoleService.Domain.Entity
 {
     /// <summary>
     /// Representa un usuario en el sistema con información personal, credenciales y estado.

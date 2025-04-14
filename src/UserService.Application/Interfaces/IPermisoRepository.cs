@@ -1,6 +1,6 @@
-﻿using UserService.Domain.Entity;
+﻿using RoleService.Domain.Entity;
 
-namespace UserService.Application.Interfaces
+namespace RoleService.Application.Interfaces
 {
     public interface IPermisoRepository
     {

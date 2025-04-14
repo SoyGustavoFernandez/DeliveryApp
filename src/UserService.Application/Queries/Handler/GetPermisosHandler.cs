@@ -1,11 +1,11 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
 using System.Net;
-using UserService.Application.Interfaces;
-using UserService.Application.Queries.Permisos;
-using UserService.Domain.Entity;
+using RoleService.Application.Interfaces;
+using RoleService.Application.Queries.Permisos;
+using RoleService.Domain.Entity;
 
-namespace UserService.Application.Queries.Handler
+namespace RoleService.Application.Queries.Handler
 {
     /// <summary>
     /// Handler para obtener todos los permisos activos en BD.

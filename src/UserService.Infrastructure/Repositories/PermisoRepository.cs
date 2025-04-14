@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UserService.Application.Interfaces;
-using UserService.Domain.Entity;
-using UserService.Infrastructure.Data;
+using RoleService.Application.Interfaces;
+using RoleService.Domain.Entity;
+using RoleService.Infrastructure.Data;
 
-namespace UserService.Infrastructure.Repositories
+namespace RoleService.Infrastructure.Repositories
 {
     public class PermisoRepository(ApplicationDbContext context) : IPermisoRepository
     {

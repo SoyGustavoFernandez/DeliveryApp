@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using UserService.Domain.Entity;
+using RoleService.Domain.Entity;
 
-namespace UserService.Infrastructure.Data
+namespace RoleService.Infrastructure.Data
 {
     // <summary>
     /// Contexto de base de datos para la aplicación, que representa una sesión con la base de datos.

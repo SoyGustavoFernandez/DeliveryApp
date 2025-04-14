@@ -1,6 +1,6 @@
 ﻿using DeliveryApp.Common.Entities;
 
-namespace UserService.Domain.Entity
+namespace RoleService.Domain.Entity
 {
     /// <summary>
     /// Tabla de unión que relaciona roles con permisos (relación many-to-many).

@@ -1,10 +1,10 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
 using System.Net;
-using UserService.Application.Interfaces;
-using UserService.Domain.Entity;
+using RoleService.Application.Interfaces;
+using RoleService.Domain.Entity;
 
-namespace UserService.Application.Commands.Permisos.Handler
+namespace RoleService.Application.Commands.Permisos.Handler
 {
     public class CreatePermisoHandler(IPermisoRepository repository) : IRequestHandler<CreatePermisoCommand, Response<string>>
     {

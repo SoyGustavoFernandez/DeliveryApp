@@ -1,9 +1,9 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
 using System.Net;
-using UserService.Application.Interfaces;
+using RoleService.Application.Interfaces;
 
-namespace UserService.Application.Commands.Permisos.Handler
+namespace RoleService.Application.Commands.Permisos.Handler
 {
     public class DeletePermisoHandler(IPermisoRepository repository) : IRequestHandler<DeletePermisoCommand, Response<string>>
     {

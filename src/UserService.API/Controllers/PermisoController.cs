@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using UserService.Application.Commands.Permisos;
-using UserService.Application.Queries.Permisos;
+using RoleService.Application.Commands.Permisos;
+using RoleService.Application.Queries.Permisos;
 
-namespace UserService.API.Controllers
+namespace RoleService.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

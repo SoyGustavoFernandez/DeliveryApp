@@ -13,17 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{0153E6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{C3CEF478-E3A2-4D0A-B4D2-BF7FAB8FC72F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Domain", "UserService.Domain\UserService.Domain.csproj", "{7ACA2856-19BA-4E66-AD06-12CB07AFE043}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleService.Domain", "UserService.Domain\RoleService.Domain.csproj", "{7ACA2856-19BA-4E66-AD06-12CB07AFE043}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{090C3A2B-29F1-4DF8-B521-A55C70674E29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryApp.Common", "DeliveryApp.Common\DeliveryApp.Common.csproj", "{A972E17D-FF01-AFF8-A08A-A3AD4591648E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Infrastructure", "UserService.Infrastructure\UserService.Infrastructure.csproj", "{CDEBC20E-23B3-B67D-0A4E-BE2DE33CECEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleService.Infrastructure", "UserService.Infrastructure\RoleService.Infrastructure.csproj", "{CDEBC20E-23B3-B67D-0A4E-BE2DE33CECEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.Application", "UserService.Application\UserService.Application.csproj", "{929E65C0-D634-450C-BD1B-C01AD36F4966}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleService.Application", "UserService.Application\RoleService.Application.csproj", "{929E65C0-D634-450C-BD1B-C01AD36F4966}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService.API", "UserService.API\UserService.API.csproj", "{04E13BBA-FC1E-7394-4AB5-E46BD1A6170D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoleService.API", "UserService.API\RoleService.API.csproj", "{04E13BBA-FC1E-7394-4AB5-E46BD1A6170D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

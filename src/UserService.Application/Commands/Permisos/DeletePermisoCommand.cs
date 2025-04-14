@@ -1,7 +1,7 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
 
-namespace UserService.Application.Commands.Permisos
+namespace RoleService.Application.Commands.Permisos
 {
     public class DeletePermisoCommand(Guid id) : IRequest<Response<string>>
     {

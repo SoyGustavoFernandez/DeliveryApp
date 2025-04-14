@@ -1,10 +1,10 @@
 using DeliveryApp.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using UserService.Application.Commands.Permisos.Handler;
-using UserService.Application.Interfaces;
-using UserService.Infrastructure.Data;
-using UserService.Infrastructure.Repositories;
+using RoleService.Application.Commands.Permisos.Handler;
+using RoleService.Application.Interfaces;
+using RoleService.Infrastructure.Data;
+using RoleService.Infrastructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +14,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
-    b => b.MigrationsAssembly("UserService.API")));
+    b => b.MigrationsAssembly("RoleService.API")));
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreatePermisoHandler).Assembly));
 
@@ -29,7 +29,7 @@ builder.Services.AddSwaggerGen(c =>
     {
         Title = "DeliveryApp API",
         Version = "v1",
-        Description = "API para gestionar usuarios en DeliveryApp.",
+        Description = "API para gestionar Roles, permisos y asignaciones en DeliveryApp.",
         Contact = new OpenApiContact
         {
             Name = "Gustavo Fernández",
@@ -52,7 +52,7 @@ app.UseMiddleware<ExceptionMiddleware>();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "UserService v1"));
+    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "RoleService v1"));
 }
 
 app.UseHttpsRedirection();

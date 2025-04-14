@@ -1,8 +1,8 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
-using UserService.Domain.Entity;
+using RoleService.Domain.Entity;
 
-namespace UserService.Application.Queries.Permisos
+namespace RoleService.Application.Queries.Permisos
 {
     /// <summary>
     /// Query para obtener un permiso por su identificador.

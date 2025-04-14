@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace UserServiceAPI.Controllers
+namespace RoleServiceAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserServiceController : ControllerBase
+    public class RolController : ControllerBase
     {
     }
 }
