@@ -1,6 +1,6 @@
 ﻿using DeliveryApp.Common.Entities;
 using MediatR;
-using RoleService.Domain.DTOs;
+using RoleService.Domain.DTOs.Permiso;
 
 namespace RoleService.Application.Queries.Permisos
 {

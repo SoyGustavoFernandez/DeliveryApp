@@ -9,5 +9,6 @@ namespace RoleService.Application.Interfaces
         Task DeletePermisoAsync(Permiso permiso);
         Task<Permiso> GetPermisoByIdAsync(Guid id);
         Task<List<Permiso>> GetAllPermisosAsync();
+        Task<List<Permiso>> GetPermisosByIdsAsync(List<Guid> permisoIds);
     }
 }

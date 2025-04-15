@@ -1,5 +1,4 @@
-﻿
-namespace RoleService.Domain.DTOs
+﻿namespace RoleService.Domain.DTOs.Permiso
 {
     /// <summary>
     /// Representa un permiso específico en el sistema.
@@ -14,11 +13,11 @@ namespace RoleService.Domain.DTOs
         /// <summary>
         /// Nombre del permiso en formato 'recurso.accion'
         /// </summary>
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
         /// <summary>
         /// Descripción del permiso
         /// </summary>
-        public string Descripcion { get; set; }
+        public string Descripcion { get; set; } = string.Empty;
     }
 }

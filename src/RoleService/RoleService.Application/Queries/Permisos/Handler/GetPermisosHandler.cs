@@ -2,10 +2,9 @@
 using MediatR;
 using System.Net;
 using RoleService.Application.Interfaces;
-using RoleService.Application.Queries.Permisos;
-using RoleService.Domain.DTOs;
+using RoleService.Domain.DTOs.Permiso;
 
-namespace RoleService.Application.Queries.Handler
+namespace RoleService.Application.Queries.Permisos.Handler
 {
     /// <summary>
     /// Handler para obtener todos los permisos activos en BD.
@@ -18,7 +17,7 @@ namespace RoleService.Application.Queries.Handler
         {
             var permisos = await _repository.GetAllPermisosAsync();
 
-            if (permisos == null || !permisos.Any())
+            if (permisos == null || permisos.Count == 0)
             {
                 return new Response<List<PermisoResponseDTO>>(false, "No se encontraron permisos", null!, (int)HttpStatusCode.NotFound);
             }

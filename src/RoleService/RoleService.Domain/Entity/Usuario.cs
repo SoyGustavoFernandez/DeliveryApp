@@ -94,6 +94,6 @@ namespace RoleService.Domain.Entity
         /// <summary>
         /// Colección de relaciones UsuarioRol que representan los roles asignados a este usuario.
         /// </summary>
-        public ICollection<UsuarioRol> UsuarioRoles { get; set; } = new List<UsuarioRol>();
+        public ICollection<UsuarioRol> UsuarioRoles { get; set; } = [];
     }
 }

@@ -37,6 +37,11 @@ namespace RoleService.Infrastructure.Repositories
             return permiso;
         }
 
+        public async Task<List<Permiso>> GetPermisosByIdsAsync(List<Guid> permisoIds)
+        {
+            return await _context.Permisos.Where(p => permisoIds.Contains(p.Id)).ToListAsync();
+        }
+
         public async Task UpdatePermisoAsync(Permiso permiso)
         {
             _context.Permisos.Update(permiso);

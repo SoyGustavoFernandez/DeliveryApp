@@ -12,6 +12,7 @@ namespace RoleService.Application.Commands.Permisos.Handler
         public async Task<Response<string>> Handle(UpdatePermisoCommand request, CancellationToken cancellationToken)
         {
             var permiso = await _repository.GetPermisoByIdAsync(request.Id);
+
             if (permiso == null)
             {
                 return new Response<string>(false, "Permiso no encontrado", string.Empty, (int)HttpStatusCode.NotFound);

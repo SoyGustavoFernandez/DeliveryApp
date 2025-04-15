@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RoleService.Application.Commands.Permisos;
 using RoleService.Application.Queries.Permisos;
-using RoleService.Domain.DTOs;
+using RoleService.Domain.DTOs.Permiso;
 
 namespace RoleService.API.Controllers
 {
@@ -18,11 +18,8 @@ namespace RoleService.API.Controllers
         public async Task<IActionResult> ObtenerTodosLosPermisos()
         {
             var result = await mediator.Send(new GetPermisosQueries());
-            if (!result.Success)
-            {
-                return NotFound(result);
-            }
-            return Ok(result);
+
+            return result.Success ? Ok(result) : NotFound(result);
         }
 
         /// <summary>
@@ -31,20 +28,17 @@ namespace RoleService.API.Controllers
         /// <param name="id"></param>
         /// <returns>Devuelve un permiso</returns>
         [HttpGet("{id}")]
-
         public async Task<IActionResult> ObtenerPermisoPorId(Guid id)
         {
             var result = await mediator.Send(new GetPermisoByIdQueries(id));
-            if (!result.Success)
-            {
-                return NotFound(result);
-            }
-            return Ok(result);
+
+            return result.Success ? Ok(result) : NotFound(result);
         }
+
         /// <summary>
         /// Registra un nuevo permiso en la aplicación.
         /// </summary>
-        /// <param name="command">Datos del permiso a registrar</param>
+        /// <param name="dto">Datos del permiso a registrar</param>
         /// <returns>Devuelve 201 si el permiso se creó correctamente</returns>
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -59,18 +53,14 @@ namespace RoleService.API.Controllers
             var command = new CreatePermisoCommand(dto.Nombre, dto.Descripcion);
             var response = await mediator.Send(command);
 
-            if (response.Success)
-            {
-                return CreatedAtAction(nameof(CrearPermiso), new { id = response.Data }, response);
-            }
-            return BadRequest(response.Message);
+            return response.Success ? CreatedAtAction(nameof(CrearPermiso), new { id = response.Data }, response) : BadRequest(response.Message);
         }
 
         /// <summary>
         /// Actualiza los datos de un permiso.
         /// </summary>
         /// <param name="id"></param>
-        /// <param name="command"></param>
+        /// <param name="dto"></param>
         /// <returns>Devuelve 200 si el permiso se actualizó correctamente</returns>
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -100,11 +90,8 @@ namespace RoleService.API.Controllers
         public async Task<IActionResult> EliminarPermiso(Guid id)
         {
             var response = await mediator.Send(new DeletePermisoCommand(id));
-            if (response.Success)
-            {
-                return Ok(response);
-            }
-            return NotFound(response.Message);
+
+            return response.Success ? Ok(response) : NotFound(response.Message);
         }
     }
 }

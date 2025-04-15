@@ -1,24 +1,23 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RoleService.Domain.DTOs
+namespace RoleService.Domain.DTOs.Permiso
 {
     /// <summary>
-    /// Clase para crear un nuevo permiso en el sistema.
+    /// Clase para actualizar un permiso existente.
     /// </summary>
-    public class CreatePermisoDTO
+    public class UpdatePermisoDTO
     {
         /// <summary>
-        /// Nombre del permiso en formato 'recurso.accion'. Ejemplo: usuarios.crear
+        /// Nuevo nombre del permiso (opcional)
         /// </summary>
-        [Required(ErrorMessage = "El nombre del permiso es requerido")]
         [MaxLength(100, ErrorMessage = "El nombre no puede exceder 100 caracteres")]
         [RegularExpression(@"^[a-z]+\.[a-z_]+$", ErrorMessage = "Formato inválido. Use 'recurso.accion'")]
-        public string Nombre { get; set; }
+        public string Nombre { get; set; } = string.Empty;
 
         /// <summary>
-        /// Descripción detallada del permiso. Ejemplo: Permite crear nuevos usuarios
+        /// Nueva descripción del permiso (opcional)
         /// </summary>
         [MaxLength(1000, ErrorMessage = "La descripción no puede exceder 1000 caracteres")]
-        public string Descripcion { get; set; }
+        public string Descripcion { get; set; } = string.Empty;
     }
 }

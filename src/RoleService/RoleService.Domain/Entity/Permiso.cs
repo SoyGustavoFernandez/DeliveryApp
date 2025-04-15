@@ -37,6 +37,6 @@ namespace RoleService.Domain.Entity
         /// <summary>
         /// Colección de relaciones RolPermiso que representan los roles que tienen este permiso asignado.
         /// </summary>
-        public ICollection<RolPermiso> RolPermisos { get; set; } = new List<RolPermiso>();
+        public ICollection<RolPermiso> RolPermisos { get; set; } = [];
     }
 }

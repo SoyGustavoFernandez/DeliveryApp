@@ -15,22 +15,22 @@ namespace RoleService.Domain.Entity
         /// Identificador único del rol relacionado.
         /// </summary>
         /// <example>d4e5f6a7-b8c9-0d1e-2f3a-4b5c6d7e8f9g</example>
-        public Guid RolId { get; private set; }
+        public Guid RolId { get; set; }
 
         /// <summary>
         /// Objeto Rol relacionado.
         /// </summary>
-        public Rol Rol { get; private set; }
+        public Rol Rol { get; set; }
 
         /// <summary>
         /// Identificador único del permiso relacionado.
         /// </summary>
         /// <example>b2c3d4e5-f6g7-4a8b-9c0d-1e2f3a4b5c6d</example>
-        public Guid PermisoId { get; private set; }
+        public Guid PermisoId { get; set; }
 
         /// <summary>
         /// Objeto Permiso relacionado.
         /// </summary>
-        public Permiso Permiso { get; private set; }
+        public Permiso Permiso { get; set; }
     }
 }

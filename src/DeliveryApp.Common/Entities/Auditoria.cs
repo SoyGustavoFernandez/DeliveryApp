@@ -7,7 +7,6 @@ namespace DeliveryApp.Common.Entities
         /// <summary>
         /// Id del usuario que realizó el registro.
         /// </summary>
-        [Required]
         public Guid IdUsuReg { get; set; }
 
         /// <summary>
@@ -28,7 +27,6 @@ namespace DeliveryApp.Common.Entities
         /// <summary>
         /// Indica si el permiso está vigente o no. Por defecto es verdadero.
         /// </summary>
-        [Required]
         public bool Vigente { get; set; } = true;
     }
 }

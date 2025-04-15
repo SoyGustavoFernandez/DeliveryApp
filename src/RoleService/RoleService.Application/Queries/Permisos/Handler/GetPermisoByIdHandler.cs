@@ -2,10 +2,9 @@
 using MediatR;
 using System.Net;
 using RoleService.Application.Interfaces;
-using RoleService.Application.Queries.Permisos;
-using RoleService.Domain.DTOs;
+using RoleService.Domain.DTOs.Permiso;
 
-namespace RoleService.Application.Queries.Handler
+namespace RoleService.Application.Queries.Permisos.Handler
 {
     /// <summary>
     /// Handler para obtener un permiso por su identificador.
