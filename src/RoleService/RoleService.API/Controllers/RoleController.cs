@@ -57,7 +57,7 @@ namespace RoleService.API.Controllers
             var command = new CreateRoleCommand(dto.Nombre, dto.Descripcion, dto.PermisoIds);
             var response = await _mediator.Send(command);
             
-            return response.Success ? CreatedAtAction(nameof(ObtenerRolPorId), new { id = response.Data }, response) : BadRequest(response.Message);
+            return response.Success ? CreatedAtAction(nameof(ObtenerRolPorId), new { id = response.Data }, response) : BadRequest(response);
         }
 
         /// <summary>

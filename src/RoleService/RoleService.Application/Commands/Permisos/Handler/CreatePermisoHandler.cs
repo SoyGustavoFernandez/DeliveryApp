@@ -6,12 +6,19 @@ using RoleService.Domain.Entity;
 
 namespace RoleService.Application.Commands.Permisos.Handler
 {
-    public class CreatePermisoHandler(IPermisoRepository repository) : IRequestHandler<CreatePermisoCommand, Response<string>>
+    public class CreatePermisoHandler(IUnitOfWork unitOfWork) : IRequestHandler<CreatePermisoCommand, Response<string>>
     {
-        private readonly IPermisoRepository _repository = repository;
+        private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
         public async Task<Response<string>> Handle(CreatePermisoCommand request, CancellationToken cancellationToken)
         {
+            var permisoExistente = await _unitOfWork.PermisoRepository.GetPermisoByNombreAsync(request.Nombre);
+
+            if (permisoExistente != null)
+            {
+                return new Response<string>(false, "Ya existe un permiso con el mismo nombre", string.Empty, (int)HttpStatusCode.BadRequest);
+            }
+
             Permiso permiso = new()
             {
                 Nombre = request.Nombre,
@@ -19,7 +26,8 @@ namespace RoleService.Application.Commands.Permisos.Handler
                 IdUsuReg = Guid.Parse("4c86ff9d-fed2-43aa-ab6d-457525de1a88")
             };
 
-            await _repository.AddPermisoAsync(permiso);
+            await _unitOfWork.PermisoRepository.AddPermisoAsync(permiso);
+            await _unitOfWork.CompleteAsync(); 
 
             return new Response<string>(true, "Permiso registrado exitosamente", permiso.Id.ToString(), (int)HttpStatusCode.Created);
         }

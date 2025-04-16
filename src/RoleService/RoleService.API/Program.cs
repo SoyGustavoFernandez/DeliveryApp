@@ -5,6 +5,7 @@ using RoleService.Application.Commands.Permisos.Handler;
 using RoleService.Application.Interfaces;
 using RoleService.Infrastructure.Data;
 using RoleService.Infrastructure.Repositories;
+using RoleService.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,7 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Creat
 
 builder.Services.AddSingleton<Argon2Hasher>();
 
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IPermisoRepository, PermisoRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 

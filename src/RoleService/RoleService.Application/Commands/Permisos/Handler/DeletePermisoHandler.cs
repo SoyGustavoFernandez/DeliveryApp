@@ -5,13 +5,13 @@ using RoleService.Application.Interfaces;
 
 namespace RoleService.Application.Commands.Permisos.Handler
 {
-    public class DeletePermisoHandler(IPermisoRepository repository) : IRequestHandler<DeletePermisoCommand, Response<string>>
+    public class DeletePermisoHandler(IUnitOfWork unitOfWork) : IRequestHandler<DeletePermisoCommand, Response<string>>
     {
-        private readonly IPermisoRepository _repository = repository;
+        private readonly IUnitOfWork _unitOfWork = unitOfWork;
 
         public async Task<Response<string>> Handle(DeletePermisoCommand request, CancellationToken cancellationToken)
         {
-            var permiso = await _repository.GetPermisoByIdAsync(request.Id);
+            var permiso = await _unitOfWork.PermisoRepository.GetPermisoByIdAsync(request.Id);
 
             if (permiso == null)
             {
@@ -21,7 +21,8 @@ namespace RoleService.Application.Commands.Permisos.Handler
             permiso.Vigente = false;
             permiso.FecMod = DateTime.UtcNow;
 
-            await _repository.UpdatePermisoAsync(permiso);
+            await _unitOfWork.PermisoRepository.UpdatePermisoAsync(permiso);
+            await _unitOfWork.CompleteAsync();
 
             return new Response<string>(true, "Permiso eliminado exitosamente", permiso.Id.ToString(), (int)HttpStatusCode.OK);
         }

@@ -31,6 +31,12 @@ namespace RoleService.Infrastructure.Repositories
             }).ToListAsync();
         }
 
+        public async Task<Permiso> GetPermisoByNombreAsync(string nombre)
+        {
+            var permiso = await _context.Permisos.Where(p => p.Nombre == nombre && p.Vigente).FirstOrDefaultAsync();
+            return permiso;
+        }
+
         public async Task<Permiso> GetPermisoByIdAsync(Guid id)
         {
             var permiso = await _context.Permisos.Where(p => p.Id == id && p.Vigente).FirstOrDefaultAsync();

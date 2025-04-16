@@ -49,11 +49,11 @@ namespace RoleService.API.Controllers
             {
                 return BadRequest("El DTO no puede ser nulo.");
             }
-            
+
             var command = new CreatePermisoCommand(dto.Nombre, dto.Descripcion);
             var response = await mediator.Send(command);
 
-            return response.Success ? CreatedAtAction(nameof(CrearPermiso), new { id = response.Data }, response) : BadRequest(response.Message);
+            return response.Success ? CreatedAtAction(nameof(CrearPermiso), new { id = response.Data }, response) : BadRequest(response);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace RoleService.API.Controllers
             var command = new UpdatePermisoCommand(id, dto.Nombre, dto.Descripcion);
             var response = await mediator.Send(command);
 
-            return response.Success ? Ok(response) : BadRequest(response.Message);
+            return response.Success ? Ok(response) : BadRequest(response);
         }
 
         /// <summary>

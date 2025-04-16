@@ -10,5 +10,6 @@ namespace RoleService.Application.Interfaces
         Task<Permiso> GetPermisoByIdAsync(Guid id);
         Task<List<Permiso>> GetAllPermisosAsync();
         Task<List<Permiso>> GetPermisosByIdsAsync(List<Guid> permisoIds);
+        Task<Permiso> GetPermisoByNombreAsync(string nombre);
     }
 }
